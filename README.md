@@ -20,17 +20,15 @@ simple, readable, one-file Python version that reproduces its behaviour.
 5. **Compare and refine:** share what you observed, then use Prompt 2 for a source-to-source audit.
 6. **Compare notes:** what did the agent catch, what benefited from a human check, and what changed between languages?
 
-The shared goal is one readable Python application with a minimalist,
-responsive GUI and a short, honest account of any platform adaptations. The
-repository also includes a reference [`masker.py`](masker.py).
+The repository also includes a reference [`masker.py`](masker.py).
 
 ## One shot, or pause after analysis?
 
-There is no single right tempo. A one-shot run is a fun speed test; pausing after
+There is no single right answer. A one-shot run is a fun speed test; pausing after
 the agent's behaviour inventory makes its assumptions easier to see before code
 appears. For this stand, we suggest the short **analysis-first, then iterate**
 route: ask the agent - not the participant - to extract the behaviour, look over
-it together, then continue. Prompt 1 supports either style.
+it, then continue. Prompt 1 supports either style.
 
 ## Prompt 1 — port it
 
@@ -73,7 +71,7 @@ the window opens or the code compiles.
 After trying the GUI, share anything you noticed and follow with:
 
 ```text
-Re-read masker.m as the source of truth and perform a forensic parity review.
+Re-read masker.m as the source and perform a forensic parity review.
 Map every input rule, state variable, display calculation, callback branch,
 bound, return path, and save path to masker.py. Exercise testable callbacks with
 synthetic 2D/3D arrays and fix every unintended mismatch without redesigning the
@@ -101,7 +99,7 @@ port is about understanding behaviour, not only translating syntax.
 | `c` + wheel | Change image contrast |
 | `a` + wheel | Change mask opacity |
 
-## Things worth checking together
+## Things worth checking 
 
 - [ ] 2D/3D inputs, masks, singleton dimensions, and incompatible shapes match MATLAB.
 - [ ] Normalisation, thresholding, defaults, increments, bounds, and callback priority match.
