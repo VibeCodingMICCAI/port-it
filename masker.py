@@ -56,7 +56,11 @@ class Masker:
         self.mask_colour = np.asarray(MASK_COLOURS[np.random.randint(3)])
         self._saved = False
 
-        self.figure, self.axes = plt.subplots(num="The little masker")
+        # MATLAB Masker explicitly has no toolbar. Besides matching that
+        # minimalist GUI, this prevents Matplotlib's default "s = save figure"
+        # shortcut from competing with Masker's "s + scroll = brush size".
+        with plt.rc_context({"toolbar": "None"}):
+            self.figure, self.axes = plt.subplots(num="The little masker")
         self.figure.subplots_adjust(0, 0, 1, 1)
         self.axes.set_axis_off()
         self.axes.set_aspect("equal")
